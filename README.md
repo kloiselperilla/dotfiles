@@ -1,5 +1,5 @@
 # Dotfiles
-Designed for use in WSL (namely using the [wsl-terminal](github.com/goreliu/wsl-terminal)).
+Designed for use in WSL (namely using the [wsl-terminal](https://github.com/goreliu/wsl-terminal)).
 Shamelessly stolen from someone who shamelessly stole his
 ## Installation Intructions
 1. Clone the repository `git clone https://github.com/AdityaAtulTewari/dotfiles ~/.dotfiles`
