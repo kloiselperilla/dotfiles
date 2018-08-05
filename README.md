@@ -1,5 +1,6 @@
 # Dotfiles
-
+Designed for use in WSL (namely using the [wsl-terminal](github.com/goreliu/wsl-terminal)).
+Shamelessly stolen from someone who shamelessly stole his
 ## Installation Intructions
 1. Clone the repository `git clone https://github.com/AdityaAtulTewari/dotfiles ~/.dotfiles`
 1. Change the contents of `~/.dotfiles/git/gitconfig` to reflect your file system otherwise you are making commits as me.
