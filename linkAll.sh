@@ -10,6 +10,10 @@ ln -s ~/.dotfiles/bash/bash_logout ~/.bash_logout
 ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/bash/util ~/.util
 
+echo Linking tmux
+rm ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+
 echo Linking vim
 rm -r ~/.vim
 rm ~/.vimrc
