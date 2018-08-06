@@ -15,6 +15,7 @@ Plug 'jez/vim-superman'
 Plug 'rust-lang/rust.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'valloric/MatchTagAlways'
 call plug#end()
 au BufRead,BufNewFile *.rs set filetype=rust
 "Indent Stuff
@@ -27,6 +28,7 @@ set smarttab
 
 "Number set up
 set number
+set number relativenumber
 set colorcolumn=160
 set tw=159
 autocmd BufWritePre * :%s/\s\+$//e
@@ -113,15 +115,15 @@ let g:airline#extensions#hunks#non_zero_only = 1 " In vim-airline, only display 
 let g:gitgutter_enabled = 1
 
 " javac for Syntastic
-let g:ale_linters = {"java" : ["javac"]}
+"let g:ale_linters = {"java" : ["javac"]}
 let g:syntastic_java_javac_config_file_enabled = 1
 
 " C++17 for Syntastic
-let g:ale_linters = {"cpp" : ["g++"]}
+"let g:ale_linters = {"cpp" : ["g++"]}
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 
 " Rust for Ale
-let g:ale_linters = {"rust" : ["rustc"]}
+"let g:ale_linters = {"rust" : ["rustc"]}
 let g:rust_recommended_style = 0
 
 "ALE
@@ -151,6 +153,16 @@ let g:ale_set_quickfix = 0
 let g:ale_lint_on_save = 1
 let g:ale_open_list = 1
 let g:ale_linters_explicit = 1
+
+"ALE linters
+let g:ale_linters = {
+\   "java" : ["javac"],
+\   "cpp" : ["g++"],
+\   "rust" : ["rustc"],
+\   "python" : ["flake8"],
+\   "html" : ["HTMLHint"],
+\   "javascript" : ["eslint"],
+\}
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
