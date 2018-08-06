@@ -5,3 +5,4 @@ fi
 
 export GOPATH="$HOME/Code/go"
 export PATH="$HOME/Code/go/bin:$HOME/Library/Haskell/bin:$HOME/.cargo/bin:$PATH"
+export DOCKER_HOST=localhost:2375

@@ -9,7 +9,8 @@ export GIT_PS1_STATESEPARATOR='|'
 #export GIT_PS1_SHOWUNTRACKEDFILES=true
 #export GIT_PS1_SHOWCOLORHINTS=true # Only works if PROMPT_COMMAND=__git_ps1
 
-time_jobs=$iyellow'\A'$iwhite'|'$ired'\j'$iwhite'|'
+#time_jobs=$iyellow'\A'$iwhite'|'$ired'\j'$iwhite'|'
+time_jobs=$iyellow'\A'$iwhite'|'
 user_host_wd=$icyan'\u'$iwhite'@'$igreen'\h'$iwhite':'$ipurple'\w'
 
 prompt() {
