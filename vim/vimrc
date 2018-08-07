@@ -20,8 +20,8 @@ call plug#end()
 au BufRead,BufNewFile *.rs set filetype=rust
 "Indent Stuff
 set foldmethod=syntax
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smarttab
@@ -29,12 +29,16 @@ set smarttab
 "Number set up
 set number
 set number relativenumber
-set colorcolumn=160
-set tw=159
+"Max code length 80
+set colorcolumn=80
+set tw=79
+"Remove unwanted whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+"Highlight all search matches
 set hlsearch
+"Keeps cursor 5 lines away from edge
 set scrolloff=5
-
+"Speedup
 set ttyfast
 set lazyredraw
 
@@ -52,16 +56,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"" Leave insert mode quickly
-"if ! has('gui_running')
-"  set ttimeoutlen=10
-"  augroup FastEscape
-"    autocmd!
-"    au InsertEnter * set timeoutlen=0
-"    au InsertLeave * set timeoutlen=1000
-"  augroup END
-"endif
+" Natural split open
+set splitbelow
+set splitright
 
 " Close all windows with ZZ
 nmap ZZ :xa<CR>
