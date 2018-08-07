@@ -16,6 +16,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'valloric/MatchTagAlways'
+Plug 'nvie/vim-flake8'
 call plug#end()
 au BufRead,BufNewFile *.rs set filetype=rust
 "Indent Stuff
@@ -123,6 +124,8 @@ let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 "let g:ale_linters = {"rust" : ["rustc"]}
 let g:rust_recommended_style = 0
 
+" flake8
+autocmd BufWritePost *.py call Flake8()
 "ALE
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
