@@ -17,6 +17,8 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'valloric/MatchTagAlways'
 Plug 'nvie/vim-flake8'
+Plug 'flazz/vim-colorschemes'
+
 call plug#end()
 au BufRead,BufNewFile *.rs set filetype=rust
 "Indent Stuff
@@ -78,9 +80,10 @@ nnoremap <CR> :noh<CR><CR>
 
 set showmatch  " Highlight matching braces
 
-colorscheme Atelier_HeathDark
-set background=dark
-set t_Co=256
+"colorscheme Atelier_LakesideDark
+colorscheme Tomorrow-Night-Eighties
+"hi NORMAL ctermbg=235
+
 "set cursorline " Highlight current line
 :hi CursorLine cterm=underline ctermbg=none ctermfg=none
 set nostartofline " Vertical movement preserves horizontal position
