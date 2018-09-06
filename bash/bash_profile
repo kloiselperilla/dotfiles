@@ -6,3 +6,6 @@ fi
 export GOPATH="$HOME/Code/go"
 export PATH="$HOME/Code/go/bin:$HOME/Library/Haskell/bin:$HOME/.cargo/bin:$PATH"
 export DOCKER_HOST=localhost:2375
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/anaconda3/bin:$PATH"

@@ -1,10 +1,10 @@
 [user]
 	name = KevinLoiselPerilla
-	email = kloiselperilla@gmail.com
+	email = kevin.loisel-perilla@viasat.com
 [core]
   editor = vim
   preloadindex = true
-	excludesfile = /home/${USER}/.gitignore_global
+	excludesfile = /Users/kloisel/.gitignore_global
 [color]
   ui = auto
   interactive = auto

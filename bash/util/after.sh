@@ -5,7 +5,7 @@ export PATH=~/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:$PATH
 # Set editor preference
 export EDITOR='/usr/bin/vim'
 # Define the trash folder location
-export TRASH=~/.Trash
+#export TRASH=~/.Trash
 # Add parent, home, and root to CDPATH. DO NOT EXPORT: it may break scripts
 CDPATH=.:..:~:/:$CDPATH
 

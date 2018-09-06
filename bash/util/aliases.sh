@@ -1,10 +1,10 @@
 # aliases.sh - define aliases
 
 # Add options to existing commands
-alias "cd"="custom_cd" # Use custom cd defined in functions
+#alias "cd"="custom_cd" # Use custom cd defined in functions
 alias "mv"="mv -iv"      # | Make file manipulations verbose
 alias "cp"="cp -iv"      # | rm is in an os specific file
-alias "trash"="trash -v" # | because of -I
+#alias "trash"="trash -v" # | because of -I
 alias "vim"="vim -p" # Always open in tab mode
 alias "grep"='grep --color=always'
 alias "mkrc"="mkrc -v"

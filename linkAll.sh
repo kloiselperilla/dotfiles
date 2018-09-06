@@ -13,7 +13,7 @@ ln -s ~/.dotfiles/bash/util ~/.util
 
 echo Linking tmux
 mv ~/.tmux.conf ~/.dotbackup/tmux.conf
-ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/.vimrc ~/.dotfiles/tmux/tmux.conf
 
 echo Linking vim/neovim
 mv ~/.vim ~/.dotbackup/vim
