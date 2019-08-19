@@ -10,7 +10,6 @@ alias "grep"='grep --color=always'
 alias "mkrc"="mkrc -v"
 alias "rcdn"="rcdn -v"
 alias "rcup"="rcup -v"
-alias "man"="vman"
 
 # Make ls better based on OS
 OS=`uname -a | head -n1 | awk '{print $1;}'`
@@ -56,3 +55,6 @@ alias "star_wars"="telnet towel.blinkenlights.nl"
 alias "shh_andrew"="shh andrew"
 alias "shh_shark"="shh shark"
 alias "shh_ghc"=" shh ghc"
+
+# Git shortcuts
+alias "gs"="git status"

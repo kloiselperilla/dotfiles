@@ -1,15 +1,16 @@
 [user]
-	name = KevinLoiselPerilla
+	name = kloisel
 	email = kevin.loisel-perilla@viasat.com
 [core]
   editor = vim
   preloadindex = true
 	excludesfile = /Users/kloisel/.gitignore_global
+	autocrlf = input
 [color]
   ui = auto
   interactive = auto
 [push]
-  default = simple
+	default = current
 [credential]
   # helper = osxkeychain # OS X
   # helper = cache --timeout=3600 # Linux
@@ -27,3 +28,23 @@
   unassume = !git ls-files -v | grep '^h' | cut -c3- | xargs git update-index --no-assume-unchanged
   submodule-pull = submodule foreach git pull origin master
   # ignore411 = !git update-index --assume-unchanged lab*/test*/* lab5/bench*/*
+  ## From "Git Fu Developing" on YouTube
+  clean = reset --hard
+  unstage = reset HEAD
+  b = branch
+  c = commit
+  p = pull
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"

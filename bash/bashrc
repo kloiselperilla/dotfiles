@@ -95,3 +95,7 @@ load_module ~/.util/auto_update.sh
 
 # Load fzf
 load_module ~/.cargo/env
+
+# gnu grep & sed
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
