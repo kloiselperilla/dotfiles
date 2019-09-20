@@ -1,0 +1,10 @@
+C-a is tmux prefix
+prefix, C-l - Clear
+pref, C-t   - Open todo list
+Has vim-aware pane splits w/ C-[hjkl]
+
+Vim:
+- ZZ - wqa, ZX - qa!
+- leader = <space>
+- <lead> t  - open nerdtree
+-

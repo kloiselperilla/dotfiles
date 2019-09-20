@@ -1,27 +1,39 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/atelierbram/vim-colors_atelier-schemes'
+"Plug 'https://github.com/atelierbram/vim-colors_atelier-schemes'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-scripts/taglist.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 "Plug 'vim-latex/vim-latex'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
-Plug 'jez/vim-superman'
-Plug 'rust-lang/rust.vim'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'valloric/MatchTagAlways'
-Plug 'nvie/vim-flake8'
+"Plug 'jez/vim-superman'
+"Plug 'rust-lang/rust.vim'
+"Plug 'neovimhaskell/haskell-vim'
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'valloric/MatchTagAlways'
+"Plug 'nvie/vim-flake8'
 Plug 'flazz/vim-colorschemes'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-syntastic/syntastic'
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
 call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Rust support
 au BufRead,BufNewFile *.rs set filetype=rust
-"Indent Stuff
+
+"Indent Configuration
 set foldmethod=syntax
 set tabstop=4
 set shiftwidth=4
@@ -29,18 +41,26 @@ set expandtab
 set autoindent
 set smarttab
 
+"Leader remap to space
+let mapleader = " "
+
 "Number set up
 set number
 set number relativenumber
+
 "Max code length 80
 set colorcolumn=80
 set tw=79
+
 "Remove unwanted whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
 "Highlight all search matches
 set hlsearch
+
 "Keeps cursor 5 lines away from edge
 set scrolloff=5
+
 "Speedup
 set ttyfast
 set lazyredraw
@@ -48,9 +68,9 @@ set lazyredraw
 "Configure NerdTree
 let NERDTreeMapActivateNode='<right>'
 let NERDTreeShowHidden=1
-noremap <F6> :NERDTreeToggle <CR>
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+noremap <leader>t :NERDTreeToggle <CR>
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 syntax on
 filetype on
 
@@ -59,21 +79,27 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 " Natural split open
 set splitbelow
 set splitright
 
 " Close all windows with ZZ
 nmap ZZ :xa<CR>
+" Close all without saving with ZX
+nmap ZX :qa!<CR>
+
+" Quick save with \s
+noremap <Leader>s :update<CR>
 
 " Switch tabs with F5 and F6
-inoremap <F5> <ESC>:tabp<CR>i<right>
-inoremap <F6> <ESC>:tabn<CR>i<right>
-nnoremap <F5> :tabp<CR>
-nnoremap <F6> :tabn<CR>
+"inoremap <F5> <ESC>:tabp<CR>i<right>
+"inoremap <F6> <ESC>:tabn<CR>i<right>
+"nnoremap <F5> :tabp<CR>
+"nnoremap <F6> :tabn<CR>
 
 " Use CTRL-T as a shortcut for make
-nnoremap <C-T> :make<CR>
+"nnoremap <C-T> :make<CR>
 
 " Get rid of highlighting after stuff
 nnoremap <CR> :noh<CR><CR>
@@ -87,17 +113,19 @@ colorscheme Tomorrow-Night-Eighties
 "set cursorline " Highlight current line
 :hi CursorLine cterm=underline ctermbg=none ctermfg=none
 set nostartofline " Vertical movement preserves horizontal position
-:imap jj <Esc>
-:imap kk <Esc>
-:imap hh <Esc>
-:imap lll <Esc>
+":imap jj <Esc>
+":imap kk <Esc>
+":imap hh <Esc>
+":imap lll <Esc>
 
 "Add mouse settings
-if has('mouse')
-set mouse=a
-endif
+"if has('mouse')
+"set mouse=a
+"endif
 
-" -----------------------------Plugins--------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
 set laststatus=2 " Always show airline
 let g:airline_powerline_fonts = 1 " Use fancy arrow font
@@ -106,10 +134,8 @@ let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
 let g:airline#extensions#branch#enabled = 1
 
 " NERDtree
-" Open/close NERDTree Tabs with \t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " To have NERDTree always open on startup
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 " vim-gitgutter
 let g:airline#extensions#hunks#non_zero_only = 1 " In vim-airline, only display 'hunks' if the diff is non-zero
@@ -117,55 +143,67 @@ let g:gitgutter_enabled = 1
 
 " javac for Syntastic
 "let g:ale_linters = {"java" : ["javac"]}
-let g:syntastic_java_javac_config_file_enabled = 1
+"let g:syntastic_java_javac_config_file_enabled = 1
 
 " C++17 for Syntastic
 "let g:ale_linters = {"cpp" : ["g++"]}
-let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
+"let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 
 " Rust for Ale
 "let g:ale_linters = {"rust" : ["rustc"]}
-let g:rust_recommended_style = 0
+"let g:rust_recommended_style = 0
 
 " flake8
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
 "ALE
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_sign_error = '✘'
+"let g:ale_python_auto_pipenv = 0
+"let g:ale_lint_on_enter = 0
+"let g:ale_fix_on_save = 1
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_sign_error = '✘'
 "let g:ale_sign_warning = '⚠'
-let g:ale_sign_warning = "▲"
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=magenta
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
+"let g:ale_sign_warning = "▲"
 
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
+"highlight ALEErrorSign ctermbg=NONE ctermfg=red
+"highlight ALEWarningSign ctermbg=NONE ctermfg=magenta
+"function! LinterStatus() abort
+"    "let l:counts = ale#statusline#Count(bufnr(''))
+"
+"    let l:all_errors = l:counts.error + l:counts.style_error
+"    let l:all_non_errors = l:counts.total - l:all_errors
+"
+"    return l:counts.total == 0 ? 'OK' : printf(
+"    \   '%dW %dE',
+"    \   all_non_errors,
+"    \   all_errors
+"    \)
+"endfunction
+"set statusline=%{LinterStatus()}
 
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-set statusline=%{LinterStatus()}
-let g:airline#extensions#ale#enabled = 1
-let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 0
-let g:ale_lint_on_save = 1
-let g:ale_open_list = 1
-let g:ale_linters_explicit = 1
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_set_loclist = 1
+"let g:ale_set_quickfix = 0
+"let g:ale_lint_on_save = 1
+"let g:ale_open_list = 1
+"ale_open_listlet g:ale_linters_explicit = 1
+nnoremap <leader>l :lnext<CR>
+nnoremap <leader>p :lprevious<CR>
+nnoremap <leader>r :lrewind<CR>
 
 "ALE linters
-let g:ale_linters = {
-\   "java" : ["javac"],
-\   "cpp" : ["g++"],
-\   "rust" : ["rustc"],
-\   "python" : ["flake8"],
-\   "html" : ["HTMLHint"],
-\   "javascript" : ["eslint"],
-\}
+"let g:ale_linters = {'python': ['flake8', 'mypy', 'pylint']}
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+"nmap <F8> :TagbarToggle<CR>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "▲"
+let g:syntastic_python_checkers=['pycodestyle']
+
+" Todo file settings
+au BufReadPost .todo call feedkeys("G$a")

@@ -13,7 +13,12 @@ ln -s ~/.dotfiles/bash/util ~/.util
 
 echo Linking tmux
 mv ~/.tmux.conf ~/.dotbackup/tmux.conf
-ln -s ~/.vimrc ~/.dotfiles/tmux/tmux.conf
+ln -s ~/.dotfiles/tmux ~/.tmux
+ln -s ~/.tmux/tmux.conf ~/.tmux.conf
+if [ ! -f ~/.todo ]
+then
+    cp ~/.tmux/resources/todo-header ~/.todo
+fi
 
 echo Linking vim/neovim
 mv ~/.vim ~/.dotbackup/vim
@@ -28,7 +33,7 @@ if [ ! -d ~/.config/nvim ]
 then
     mkdir ~/.config/nvim
 fi
-ln -s ~/.config/nvim/init.vim ~/.vimrc
+ln -s ~/.dotfiles/vim/nvim/init.vim ~/.config/nvim/init.vim
 
 
 echo Linking git
@@ -42,3 +47,5 @@ ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
 echo Set Git Values
 git config --global core.excludesfile ~/.gitignore_global
 
+# Git completion
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash

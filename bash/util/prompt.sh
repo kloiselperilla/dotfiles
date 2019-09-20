@@ -11,7 +11,8 @@ export GIT_PS1_STATESEPARATOR='|'
 
 #time_jobs=$iyellow'\A'$iwhite'|'$ired'\j'$iwhite'|'
 time_jobs=$iyellow'\A'$iwhite'|'
-user_host_wd=$icyan'\u'$iwhite'@'$igreen'\h'$iwhite':'$ipurple'\w'
+#user_host_wd=$icyan'\u'$iwhite'@'$igreen'\h'$iwhite':'$ipurple'\w'
+user_host_wd=$icyan'\u'$iwhite':'$ipurple'\w'
 
 prompt() {
     if [ $? = 0 ]
@@ -26,7 +27,7 @@ prompt() {
         /bin/fortune | ~/bin/cowsay -n
     fi
 
-    local git_color=$icyan
+    local git_color=$igreen
     local git_status=$git_color$(__git_ps1 | cut -c 2-)
     local git_status=${git_status/"%"/$icyan"%"$git_color}
     local git_status=${git_status/"*"/$ired"*"$git_color}

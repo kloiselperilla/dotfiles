@@ -19,3 +19,6 @@ Thumbs.db
 # Jetbrains
 .idea
 *__pycache__*
+
+# Pyenv
+.python-version
