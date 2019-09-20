@@ -12,6 +12,7 @@ ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/bash/util ~/.util
 
 echo Linking tmux
+mv ~/.tmux ~/.dotbackup/tmux
 mv ~/.tmux.conf ~/.dotbackup/tmux.conf
 ln -s ~/.dotfiles/tmux ~/.tmux
 ln -s ~/.tmux/tmux.conf ~/.tmux.conf
