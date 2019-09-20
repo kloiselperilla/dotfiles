@@ -1,8 +1,7 @@
 # Dotfiles
-Designed for use in WSL (namely using the [wsl-terminal](https://github.com/goreliu/wsl-terminal)).
 Shamelessly stolen from someone who shamelessly stole his
 ## Installation Intructions
-1. Clone the repository `git clone https://github.com/kevinmbt/dotfiles ~/.dotfiles`
+1. Clone the repository `git clone https://github.com/kloiselperilla/dotfiles ~/.dotfiles`
 1. Change the contents of `~/.dotfiles/git/gitconfig` to reflect your file system otherwise you are making commits as me.
 1. Run `bash ~/.dotfiles/linkAll.sh`; Please note this will delete your current configuration files.
 1. Run `vi ~/.vimrc`  within that file type `:PlugInstall`
