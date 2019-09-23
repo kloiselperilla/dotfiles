@@ -27,6 +27,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
+Plug 'dkarter/bullets.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -79,6 +82,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+imap <C-J> <Esc><C-J>
+imap <C-K> <Esc><C-K>
+imap <C-L> <Esc><C-L>
+imap <C-H> <Esc><C-H>
 
 " Natural split open
 set splitbelow
@@ -206,4 +213,7 @@ let g:syntastic_warning_symbol = "▲"
 let g:syntastic_python_checkers=['pycodestyle']
 
 " Todo file settings
-au BufReadPost .todo call feedkeys("G$a")
+au BufReadPost .todo.txt call feedkeys("G$a")
+
+" SimpylFold settings
+let g:SimpylFold_docstring_preview = 1

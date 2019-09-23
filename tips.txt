@@ -1,0 +1,40 @@
+##################
+# Vanilla Vim
+##################
+Motions
+- (i)["wsp({t"]
+- C-} - Jump to definition
+
+
+
+##################
+# Plugins
+##################
+vim-surround
+- ys (add), cs, ds
+    - "ysiw'" - Adds single quotes around words
+    - "cs'<q>" - changes surrounding single quotes into <q> tags
+    - "ds<q>" - deletes surrounding <q> tag
+    - "ysiw{" - { <word> }
+    - "ysiw}" - {<word>}
+    - Shift-v (visual lines) -> S{ - surround lines with {}
+vim-bullets
+- (insert) C-t - indent, C-d - deindent
+
+
+
+##################
+# Personal
+##################
+C-a is tmux prefix
+prefix, C-l - Clear
+pref, C-t   - Open todo list
+pref, C-s   - Screenshot-friendly mode (white on black) (pref, r to reset)
+Has vim-aware pane splits w/ C-[hjkl]
+
+
+Vim:
+- ZZ - wqa, ZX - qa!
+- leader = <space>
+- <lead> t  - open nerdtree
+-
