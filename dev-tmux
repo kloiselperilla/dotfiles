@@ -1,0 +1,3 @@
+#!/bin/bash
+tmux new-session \; source ~/.tmux/scripts/todo-tab.tmux \; \
+    rename-window secpipe \; rename-session dev

@@ -16,10 +16,11 @@ mv ~/.tmux ~/.dotbackup/tmux
 mv ~/.tmux.conf ~/.dotbackup/tmux.conf
 ln -s ~/.dotfiles/tmux ~/.tmux
 ln -s ~/.tmux/tmux.conf ~/.tmux.conf
-if [ ! -f ~/.todo ]
+if [ ! -f ~/.todo.txt ]
 then
-    cp ~/.tmux/resources/todo-header ~/.todo
+    cp ~/.tmux/resources/todo-header ~/.todo.txt
 fi
+ln -s ~/.dotfiles/dev-tmux /usr/local/bin/dev-tmux
 
 echo Linking vim/neovim
 mv ~/.vim ~/.dotbackup/vim
