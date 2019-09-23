@@ -1,1 +1,1 @@
-split-window -hbl 60 'nvim ~/.todo'
+split-window -hbl 60 'nvim ~/.todo.txt'
