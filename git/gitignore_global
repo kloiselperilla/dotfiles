@@ -22,3 +22,6 @@ Thumbs.db
 
 # Pyenv
 .python-version
+
+# Ctags
+tags
